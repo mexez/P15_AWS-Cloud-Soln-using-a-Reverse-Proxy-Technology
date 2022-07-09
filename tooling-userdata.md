@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-01c13a4019ca59dbe fs-8b501d3f:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-0d1578bfec4d90ff6 fs-064d39eccc6ed4ba2:/ /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -13,7 +13,7 @@ git clone https://github.com/mexez/P15_AWS-Cloud-Soln-using-a-Reverse-Proxy-Tech
 mkdir /var/www/html
 cp -R /tooling-1/html/*  /var/www/html/
 cd /tooling-1
-mysql -h acs-database.cdqpbjkethv0.us-east-1.rds.amazonaws.com -u ACSadmin -p toolingdb < tooling-db.sql
+mysql -h aeon-database.c3kwqf5nstkm.us-east-2.rds.amazonaws.com -u AEONadmin -p toolingdb < tooling-db.sql
 cd /var/www/html/
 touch healthstatus
 sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('aeon-database.c3kwqf5nstkm.us-east-2.rds.amazonaws.com', 'AEONadmin', '12345678', 'toolingdb');/g" functions.php
