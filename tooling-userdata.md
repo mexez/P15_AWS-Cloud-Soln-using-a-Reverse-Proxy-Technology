@@ -9,7 +9,7 @@ yum module enable php:remi-7.4 -y
 yum install -y php php-common php-mbstring php-opcache php-intl php-xml php-gd php-curl php-mysqlnd php-fpm php-json
 systemctl start php-fpm
 systemctl enable php-fpm
-git clone https://github.com/mexez/P15_AWS-Cloud-Soln-using-a-Reverse-Proxy-Technology.git
+git clone https://github.com/mexez/tooling-1.git
 mkdir /var/www/html
 cp -R /tooling-1/html/*  /var/www/html/
 cd /tooling-1
